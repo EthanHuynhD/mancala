@@ -2,7 +2,10 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+/**
+ * Tester class tests/runs the program.
+ * @author Tripod - Ethan Huynh, Raza Ahmad, Ching Tsoi
+ */
 public class Tester {
 	public static void main(String[] args) {
 		int pebbles = 0;

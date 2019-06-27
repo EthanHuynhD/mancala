@@ -22,7 +22,12 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
+/**
+ * InnerPanel class creates the inner Panel to store components including pits, mancalas A and B,
+ * and all the stones. This class acts as the Controller and View in MVC (observer pattern).
+ * @author Tripod - Ethan Huynh, Raza Ahmad, Ching Tsoi
+ *
+ */
 public class InnerPanel extends JPanel implements ChangeListener {
 	private Model model;
 	private ArrayList<Shape> pits = new ArrayList<Shape>();
@@ -30,7 +35,11 @@ public class InnerPanel extends JPanel implements ChangeListener {
 	private ArrayList<Integer> cirY = new ArrayList<Integer>();
 	private Style style;
 	private ArrayList<Integer> data;
-
+	/**
+	 * Construct an InnerPanel using the Model object. The constructor
+	 * also creates a mouse listener as part of the Controller. 
+	 * @param model
+	 */
 	public InnerPanel(Model model) {
 		this.model = model;
 		this.data = this.model.getData();
@@ -71,7 +80,10 @@ public class InnerPanel extends JPanel implements ChangeListener {
 		});
 
 	}
-
+	/**
+	 * Draw shape of the pits and the mancalas depending on the style.
+	 * @param style
+	 */
 	public void drawShapes(Style style) {
 		this.style = style;
 		pits.add(this.style.createShape(20, 20, 100, 260, 50, 50));
@@ -89,7 +101,9 @@ public class InnerPanel extends JPanel implements ChangeListener {
 		pits.add(this.style.createShape(860, 20, 100, 260, 50, 50));
 		// pits.add(new RoundRectangle2D.Double(860, 20, 100, 260, 50, 50));
 	}
-
+	/**
+	 * Override the JPanel paintComponent(Graphics) method.
+	 */
 	@Override
 	protected void paintComponent(Graphics grphcs) {
 		super.paintComponent(grphcs);
@@ -105,6 +119,9 @@ public class InnerPanel extends JPanel implements ChangeListener {
 			}
 		}
 	}
+	/*
+	 * Override stateChanged method from ChangeListener as part of the View.
+	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		this.data = model.getData();
@@ -113,6 +130,9 @@ public class InnerPanel extends JPanel implements ChangeListener {
 		drawShapes(style);
 		repaint();
 	}
+	/**
+	 * Set x and y coordinates for the mancalas and pits.
+	 */
 	public void setCir() {
 		cirX.add(50);
 		cirX.add(35);

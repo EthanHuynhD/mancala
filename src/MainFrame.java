@@ -13,14 +13,21 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
+/**
+ * MainFrame class creates the main frame for the game using JFrame.
+ * @author Tripod - Ethan Huynh, Raza Ahmad, Ching Tsoi
+ */
 public class MainFrame extends JFrame {
 	private Model model;
 	private JLabel west;
 	private JLabel east;
 	private JLabel south;
 	private JLabel north;
-
+	/**
+	 * Construct a MainFrame using a Model object. This constructor
+	 * creates labels and create subsequent panels.
+	 * @param model
+	 */
 	public MainFrame(Model model) {
 		this.model=model;
 		west = new JLabel(vertStr("MACANLA B"));
